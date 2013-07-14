@@ -25,16 +25,14 @@ namespace FontClass
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-            //test textdisplay class
-            aTest = new TextDisplay("String Test", new Vector2(0,100));
-            anotherTest = new TextDisplay("Another String Test", new Vector2(100,150));
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            //test textdisplay class
+            aTest = new TextDisplay(this.Content, "String Test", new Vector2(0, 100));
+            anotherTest = new TextDisplay(this.Content, "Another String Test", new Vector2(100, 150));
             base.Initialize();
         }
 
@@ -42,11 +40,7 @@ namespace FontClass
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             // TODO: use this.Content to load your game content here
-            aTest.Load(this.Content);
-            anotherTest.Load(this.Content);
-
         }
 
         protected override void UnloadContent()
@@ -56,12 +50,13 @@ namespace FontClass
 
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
             // TODO: Add your update logic here
-
+            KeyboardState currentKeyboardState;
+            currentKeyboardState = Keyboard.GetState();
+            if (currentKeyboardState.IsKeyDown(Keys.Enter) == true)
+            {
+                aTest.stringValue = "This has worked";
+            }
             base.Update(gameTime);
         }
 
