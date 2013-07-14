@@ -28,7 +28,7 @@ namespace FontClass
 
             //test textdisplay class
             aTest = new TextDisplay("String Test", new Vector2(0,100));
-            anotherTest = new TextDisplay("Another Strin Test", new Vector2(100,100));
+            anotherTest = new TextDisplay("Another String Test", new Vector2(100,150));
         }
 
         protected override void Initialize()
@@ -71,6 +71,7 @@ namespace FontClass
 
             // TODO: Add your drawing code here
             SpriteBatch fontBatch = new SpriteBatch(GraphicsDevice);
+            
             aTest.DrawFont(fontBatch);
 
             anotherTest.DrawFont(fontBatch);
